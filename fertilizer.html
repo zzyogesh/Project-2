@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Recommendation</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div id="container">
+        <div class="container">
+            <h2>Fertilizer Recommendation</h2>
+            <form action="/predict_fertilizer" method="post">
+                <label for="temperature">Temperature (°C):</label>
+                <input type="number" step="any" name="temperature" required><br><br>
+
+                <label for="moisture">Moisture:</label>
+                <input type="number" step="any" name="moisture" required><br><br>
+
+                <label for="rainfall">Rainfall:</label>
+                <input type="number" step="any" name="rainfall" required><br><br>
+
+                <label for="ph">pH:</label>
+                <input type="number" step="any" name="ph" required><br><br>
+
+                <label for="nitrogen">Nitrogen:</label>
+                <input type="number" step="any" name="nitrogen" required><br><br>
+
+                <label for="phosphorous">Phosphorous:</label>
+                <input type="number" step="any" name="phosphorous" required><br><br>
+
+                <label for="potassium">Potassium:</label>
+                <input type="number" step="any" name="potassium" required><br><br>
+
+                <label for="carbon">Carbon:</label>
+                <input type="number" step="any" name="carbon" required><br><br>
+
+                <label for="soil">Soil:</label>
+                <select name="soil" required>
+                    <option value="Loamy Soil">Loamy Soil</option>
+                    <option value="Peaty Soil">Peaty Soil</option>
+                    <option value="Acidic Soil">Acidic Soil</option>
+                    <option value="Neutral Soil">Neutral Soil</option>
+                </select><br><br>
+
+                <label for="crop">Crop:</label>
+                <select name="crop" required>
+                    <option value="rice">rice</option>
+                    <option value="wheat">wheat</option>
+                </select><br><br>
+
+                <label for="remark">Remark:</label>
+                <input type="text" name="remark" value="General recommendation"><br><br>
+
+                <button type="submit">Predict Fertilizer</button>
+            </form>
+
+            {% if predicted_fertilizer %}
+            <h3>Predicted Fertilizer: {{ predicted_fertilizer }}</h3>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

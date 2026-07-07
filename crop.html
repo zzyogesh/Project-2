@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div id="container">
+        <div class="container">
+            <h2>Crop Recommendation</h2>
+            <form action="/predict_crop" method="post">
+                <label for="N">Nitrogen (N):</label>
+                <input type="number" step="any" name="N" placeholder="Enter Nitrogen value" required><br><br>
+
+                <label for="P">Phosphorus (P):</label>
+                <input type="number" step="any" name="P" placeholder="Enter Phosphorus value" required><br><br>
+
+                <label for="K">Potassium (K):</label>
+                <input type="number" step="any" name="K" placeholder="Enter Potassium value" required><br><br>
+
+                <label for="temperature">Temperature (°C):</label>
+                <input type="number" step="any" name="temperature" placeholder="Enter Temperature value" required><br><br>
+
+                <label for="humidity">Humidity (%):</label>
+                <input type="number" step="any" name="humidity" placeholder="Enter Humidity value" required><br><br>
+
+                <label for="ph">pH:</label>
+                <input type="number" step="any" name="ph" placeholder="Enter pH value" required><br><br>
+
+                <label for="rainfall">Rainfall:</label>
+                <input type="number" step="any" name="rainfall" placeholder="Enter Rainfall value" required><br><br>
+
+                <button type="submit">Predict Crop</button>
+            </form>
+
+            {% if predicted_crop %}
+            <h3>Predicted Crop: {{ predicted_crop }}</h3>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
